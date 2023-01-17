@@ -11,6 +11,33 @@
   </head>
 
   <body>
+
+    <% if user_signed_in? %>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">Logged as : <strong><%= current_user.name %></strong></a>
+        <div class="d-flex">
+          <%= link_to "Settings", edit_user_registration_path, class:"nav-link active" %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link" %>
+        </div>
+      </div>
+    </nav>
+    <% else %>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">My Recipe</a>
+        <form class="d-flex">
+          <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-success" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-success" %>
+        </form>
+      </div>
+    </nav>
+    <% end %>
+
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
