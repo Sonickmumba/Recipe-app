@@ -40,11 +40,14 @@
   margin-bottom: 40px;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 2px solid;
 }
 
-th, td {
+th,
+td {
   padding: 15px;
   text-align: left;
 }

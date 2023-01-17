@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .btn-outline-success {
+.btn-outline-success {
   margin-right: 10px;
 }
 
@@ -36,6 +36,7 @@
 .login-form {
   width: 100%;
   margin-bottom: 20px;
+
   /* height: 40px; */
   font-size: 1.2rem;
   padding: 8px;
@@ -44,6 +45,7 @@
 #user_password {
   width: 100%;
   margin-bottom: 20px;
+
   /* height: 40px; */
   font-size: 1.2rem;
   padding: 8px;
@@ -86,10 +88,10 @@
   width: 40%;
 }
 
-.one a{
+.one a {
   text-decoration: none;
   margin-top: 40px;
-} 
+}
 
 .login-link-signup-page {
   width: 40%;
