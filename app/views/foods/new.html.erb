@@ -1,0 +1,29 @@
+<div class="wrapper-container">
+  <h2>Add New Food</h2>
+  <%= form_with model: @food, url: foods_path, method: :post do |f| %>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :measurement_unit %><br />
+      <%= f.text_field :measurement_unit, autofocus: true, autocomplete: "name", placeholder: 'measurement unit' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price %><br />
+      <%= f.text_field :price, autofocus: true, autocomplete: "name", placeholder: 'Price' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :quantity %><br />
+      <%= f.text_field :quantity, autofocus: true, autocomplete: "name", placeholder: 'Quantity' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Adding Food", class: "btn-food" %>
+    </div>
+  <% end %>
+</div>
