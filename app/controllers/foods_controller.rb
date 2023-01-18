@@ -15,8 +15,7 @@ class FoodsController < ApplicationController
     @qty = quantity_total(@foods)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @food = Food.new(food_params)

@@ -4,7 +4,7 @@ class RecipeFoodsController < ApplicationController
   def index
     @recipe_foods = RecipeFood.all
   end
-  
+
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.new
@@ -48,11 +48,12 @@ class RecipeFoodsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe_food
     @recipe_food = RecipeFood.find(params[:id])
   end
-  
+
   def recipe_food_params
     params.require(:recipe_food).permit(:quantity, :food_id)
   end
