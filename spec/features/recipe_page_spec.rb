@@ -16,7 +16,6 @@ RSpec.describe 'Recipe list page', type: :feature do
       fill_in 'Description', with: 'I love meat pies'
       click_on 'Adding recipe'
     end
-    
 
     scenario 'I can see a heading Recipes List ' do
       expect(page).to have_content 'Recipes List'
