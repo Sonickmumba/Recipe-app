@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
   end
 
   def shopping_list
-    @foods = Food.includes(:recipe_foods).where(recipe_foods: { food_id: nil })
+    @foods = Food.includes(:recipe_foods, :user).where(recipe_foods: { food_id: nil })
     @food_count = @foods.length
     @sum = amount_total(@foods)
   end
