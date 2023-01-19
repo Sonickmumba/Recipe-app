@@ -36,19 +36,15 @@
 .login-form {
   width: 100%;
   margin-bottom: 20px;
-
-  /* height: 40px; */
   font-size: 1.2rem;
-  padding: 8px;
+  padding: 4px;
 }
 
 #user_password {
   width: 100%;
   margin-bottom: 20px;
-
-  /* height: 40px; */
   font-size: 1.2rem;
-  padding: 8px;
+  padding: 4px;
 }
 
 .shared-links {
@@ -134,11 +130,6 @@
 .unhappy {
   margin: auto;
   width: 40%;
-}
-
-.button_to {
-  width: 40%;
-  margin: auto;
 }
 
 .back-btn {
