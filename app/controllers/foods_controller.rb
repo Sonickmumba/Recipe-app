@@ -10,9 +10,9 @@ class FoodsController < ApplicationController
   end
 
   def shopping_list
-    @foods = Food.includes(:recipe_foods).where(recipe_foods: { food_id: nill })
-    @sum = sumtotal(@foods)
-    @qty = quantity_total(@foods)
+    @foods = Food.includes(:recipe_foods).where(recipe_foods: { food_id: nil })
+    @food_count = @foods.length
+    @sum = amount_total(@foods)
   end
 
   def edit; end
@@ -57,18 +57,11 @@ class FoodsController < ApplicationController
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 
-  def sumtotal(obj)
+  def amount_total(obj)
     sum = 0
     obj.each do |value|
-      sum += value.price
-    end
-    sum
-  end
-
-  def quantity_total(obj)
-    sum = 0
-    obj.each do |value|
-      sum += value.quantity.to_i
+      cost_value = value.price * value.quantity.to_i
+      sum += cost_value
     end
     sum
   end
