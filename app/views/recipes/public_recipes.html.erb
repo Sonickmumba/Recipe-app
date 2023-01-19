@@ -1,0 +1,21 @@
+<div class="public-recipes-wrapper" style="margin: auto; width: 50%; ">
+    <h2>Public Recipes</h2>
+    <% @public_recipes.each do |recipe| %>
+      <a href = "<%= recipe_path(recipe) %>" class="public flex">
+        <div class="card mb-3" style="width: 100%; padding: 8px;">
+          <div class="row g-0" style="justify-content: space-evenly">
+            <div class="col-md-4">
+              <p class = "card-text"><%=recipe.name%></p>
+              <p class = "card-text" >By <%=recipe.user.name%></p>
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <p class="card-text">Total food item: <%=recipe.foods.size%> </p>
+                <p class="card-text">Total food price: <%=total_recipy_food( total_cost(recipe).zip(total_quantity(recipe)) )%>  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+</div>

@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "foods#index"
 
-  resources :public_recipes, only: [:index]
-  resources :general_shopping_list, only: [:show]
+  # resources :public_recipes, only: [:index]
+  # resources :general_shopping_list, only: [:show]
+
+  get  'public_recipes', to: 'recipes#public_recipes'
+  get  'general_shopping_list', to: 'foods#shopping_list'
 
   resources :foods, only: [:index, :new, :create, :destroy]
   resources :recipes, only: [:index, :new, :show, :public, :create, :destroy] do
