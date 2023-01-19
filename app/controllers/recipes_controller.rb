@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def public
+  def public_recipes
     @public_recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
@@ -40,4 +40,23 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
+
+  def total_cost(recipe)
+    recipe.foods.map do |ingredient|
+      ingredient.price.to_i
+    end
+  end
+
+  def total_quantity(recipe)
+    recipe.recipe_foods.map(&:quantity)
+  end
+
+  def total_recipy_food(arrays)
+    total = 0
+    arrays.each do |array|
+      total += array[0] * array[1]
+    end
+    total
+  end
+  helper_method :total_cost, :total_quantity, :total_recipy_food
 end
