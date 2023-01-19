@@ -60,7 +60,7 @@ class FoodsController < ApplicationController
   def amount_total(obj)
     sum = 0
     obj.each do |value|
-      cost_value = value.price * value.quantity.to_i 
+      cost_value = value.price * value.quantity.to_i
       sum += cost_value
     end
     sum
