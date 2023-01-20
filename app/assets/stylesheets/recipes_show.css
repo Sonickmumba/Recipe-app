@@ -29,6 +29,14 @@
   box-shadow: 4px 8px #0c0c0c;
 }
 
+.disable-tool {
+  text-decoration: none;
+  border-style: solid;
+  color: black;
+  padding: 4px;
+  box-shadow: 4px 8px #0c0c0c;
+}
+
 .line {
   width: 100%;
   border-bottom: 4px solid black;

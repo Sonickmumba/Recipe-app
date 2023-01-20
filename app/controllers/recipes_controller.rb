@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.includes(:user)
   end
 
   def public_recipes
@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @recipe_foods = RecipeFood.all.includes(:food)
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
     # @foods = @recipe.recipe_foods.includes(:food).all
   end
 

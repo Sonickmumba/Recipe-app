@@ -26,8 +26,8 @@
     </div>
   <% else %>
     <div class="tools">
-      <%= link_to "Generate shopping list", class: "generate-shopping-list" %>
-      <%= link_to "Add ingredients", class: "add-ingredients-btn" %>
+      <%= link_to "Generate shopping list", class: "disable-tool" %>
+      <%= link_to "Add ingredients", class: "disable-tool" %>
     </div>
   <% end %>
   <span class="line"></span>
@@ -43,18 +43,15 @@
     </thead>
     <tbody>
       <% @recipe_foods.each do |recipe_food| %>
-          <tr>
-              
-              <td><%= recipe_food.food.name %></td>
-              <td><%= recipe_food.quantity %></td>
-              <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
-              <td class="td-button">
-                <%# Add permissions here with cancancan gem %>
-                  <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), data: {turbo: false}, method: :update, class: "btn btn-outline-secondary " %> 
-                  <%= button_to "Delete", recipe_recipe_food_path(recipe_id: recipe_food.recipe_id, id: recipe_food.id), data: {turbo: false}, method: :delete, class: "btn btn-outline-danger" %>
-                
-              </td>
-          </tr>
+        <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
+        <td class="td-button">
+            <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), data: {turbo: false}, method: :update, class: "btn btn-outline-secondary " %> 
+            <%= button_to "Delete", recipe_recipe_food_path(recipe_id: recipe_food.recipe_id, id: recipe_food.id), data: {turbo: false}, method: :delete, class: "btn btn-outline-danger" %>
+        </td>
+        </tr>
       <% end %>
     </tbody>
   </table>
