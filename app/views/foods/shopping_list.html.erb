@@ -10,18 +10,18 @@
       <tr>
         <th scope="col">Food</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Unit Price</th>
+        <th scope="col">Price</th>
       </tr>
     </thead>
     <tbody>
       <% @foods.each do |food| %>
-         <%if current_user == food.user%>
+         <%#if current_user == food.user%>
           <tr>
             <td> <%= food.name %> </td>
             <td> <%= food.quantity %>   <%= food.measurement_unit  %></td>
             <td> $ <%= food.price * food.quantity.to_i %> </td>  
           </tr>
-         <%end%>
+         <%#end%>
       <% end %>
     </tbody>
   </table>

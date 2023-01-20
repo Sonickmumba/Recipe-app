@@ -1,7 +1,7 @@
 <div class="public-recipes-wrapper" style="margin: auto; width: 50%; ">
     <h2>Public Recipes</h2>
     <% @public_recipes.each do |recipe| %>
-      <a href = "<%= recipe_path(recipe) %>" class="public flex">
+      <a href = "<%= recipe_path(recipe) %>" class="public flex" style="text-decoration: none; color: black;">
         <div class="card mb-3" style="width: 100%; padding: 8px;">
           <div class="row g-0" style="justify-content: space-evenly">
             <div class="col-md-4">
