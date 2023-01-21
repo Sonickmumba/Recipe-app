@@ -48,8 +48,10 @@
         <td><%= recipe_food.quantity %></td>
         <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
         <td class="td-button">
-            <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), data: {turbo: false}, method: :update, class: "btn btn-outline-secondary " %> 
-            <%= button_to "Delete", recipe_recipe_food_path(recipe_id: recipe_food.recipe_id, id: recipe_food.id), data: {turbo: false}, method: :delete, class: "btn btn-outline-danger" %>
+            <%if current_user == recipe_food.food.user  %>
+              <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), data: {turbo: false}, method: :update, class: "btn btn-outline-secondary " %> 
+              <%= button_to "Delete", recipe_recipe_food_path(recipe_id: recipe_food.recipe_id, id: recipe_food.id), data: {turbo: false}, method: :delete, class: "btn btn-outline-danger" %>
+            <% end %>
         </td>
         </tr>
       <% end %>
