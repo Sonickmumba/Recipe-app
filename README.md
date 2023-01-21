@@ -112,7 +112,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- > Describe between 1-3 key features of the application. -->
 
-- **[A login page]** - 
+- **[A login page]**
 - **[A registration page]**
 - **[A food list (with all CRUD implementation, except for 'update')]**
 - **[A recipes list (with all CRUD implementation, except for 'update')]**
@@ -279,7 +279,7 @@ I would like to thank...
 
 <!-- FAQ (optional) -->
 
-## ❓ FAQ <a name="faq"></a>
+<!-- ## ❓ FAQ <a name="faq"></a>
 
 > Add at least 2 questions new developers would ask when they decide to use your project.
 
@@ -289,15 +289,15 @@ I would like to thank...
 
 - **[Question_2]**
 
-  - [Answer_2]
+  - [Answer_2] -->
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
