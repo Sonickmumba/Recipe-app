@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <h1 id="recipe-headline">Recipes List</h1>
+    <div><%= link_to "Add recipe", new_recipe_path, class: "add-recipe-btn" %></div>
+
+  <% if @recipes.empty? %>
+    <h2>There are no recipes yet!!</h2>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <% if can? :read, recipe %>
+        <div class="recipe-container">
+          <div class="recipe-name-remove-btn">
+            <%= link_to recipe, class: 'link-to-rec' do %>
+              <p class="recipe-name"><%= recipe.name %></p>
+            <% end %>
+            <%if current_user == recipe.user  %>
+              <%= button_to "Delete", recipe_path(id: recipe.id), method: :delete, class: "remove-btn" %>
+            <% end %>
+          </div>
+          <div class="description"><%= recipe.description %></div>
+        </div>
+      <% end %>
+
+    <% end %>
+  <% end %>
+</div>

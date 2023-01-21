@@ -1,0 +1,20 @@
+.food-wrapper {
+  width: 60%;
+  margin: auto;
+}
+
+.add-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.food-remove-btn {
+  text-decoration: none;
+  border-style: solid;
+  color: black;
+  padding: 4px;
+}
+
+.foodTable {
+  border: 5px solid #000;
+}

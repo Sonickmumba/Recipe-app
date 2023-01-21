@@ -1,0 +1,60 @@
+<div class="wrapper-recipe-show">
+  <h1 class="title-header"><%= @recipe.name %></h1>
+  <div class="top-features">
+    <span class="preparation-time">Preparation time: <%= @recipe.preparation_time %> hour</span>
+    <div>
+      <% if @recipe.public? %>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+          <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
+        </div>
+      <% else %>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Private</label>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <p class="cooking-time">Cooking time: <%= @recipe.cooking_time %> hours</p>
+  <p class="steps">Steps go here...</p>
+
+  <% if current_user == @recipe.user %>
+    <div class="tools">
+      <%= link_to "Generate shopping list", general_shopping_list_path(id: @recipe.id), class: "generate-shopping-list" %>
+      <%= link_to "Add ingredients", new_recipe_recipe_food_path(@recipe), class: "add-ingredients-btn" %>
+    </div>
+  <% else %>
+    <div class="tools">
+      <%= link_to "Generate shopping list", class: "disable-tool" %>
+      <%= link_to "Add ingredients", class: "disable-tool" %>
+    </div>
+  <% end %>
+  <span class="line"></span>
+
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.each do |recipe_food| %>
+        <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
+        <td class="td-button">
+            <%if current_user == recipe_food.food.user  %>
+              <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), data: {turbo: false}, method: :update, class: "btn btn-outline-secondary " %> 
+              <%= button_to "Delete", recipe_recipe_food_path(recipe_id: recipe_food.recipe_id, id: recipe_food.id), data: {turbo: false}, method: :delete, class: "btn btn-outline-danger" %>
+            <% end %>
+        </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,20 @@
+.wrapper-flex {
+  width: 50%;
+  margin: auto;
+}
+
+.table {
+  width: 100%;
+}
+
+.header-center-self {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+
+.shopping_list {
+  display: flex;
+  justify-content: space-between;
+}
